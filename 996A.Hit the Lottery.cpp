@@ -17,8 +17,14 @@ int bottomUp(int amount){
     for(int col = 1; col <= amount; ++col)
         dp[0][col] = 1e5;
 
-    
-
+    for(int row = 1; row <= n; ++row)
+        for(int col = 1; col <= amount; ++col){
+            if(col < bills[row-1])
+                dp[row][col] = dp[row-1][col];
+            else
+                dp[row][col] = min(1+dp[row][col-bills[row-1]], dp[row-1][col]);
+        }
+    return dp[n][amount] > 1e4 ? -1 : dp[n][amount];
 }
 
 int main(){
@@ -30,5 +36,5 @@ int main(){
     int n; 
     cin>> n;
 
-    return bottomUp(n);
+    cout << bottomUp(n);
 }
