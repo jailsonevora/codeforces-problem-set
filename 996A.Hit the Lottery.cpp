@@ -4,7 +4,20 @@
 
 using namespace std;
 
-int bottomUp(int n){
+int bottomUp(int amount){
+
+    vector<int> bills = {1 , 5, 10, 20, 100};
+    int n = bills.size();
+
+    int dp[n+1][amount+1];
+
+    for(int row = 0; row <= n; ++row)
+        dp[row][0] = 0;
+    
+    for(int col = 1; col <= amount; ++col)
+        dp[0][col] = 1e5;
+
+    
 
 }
 
