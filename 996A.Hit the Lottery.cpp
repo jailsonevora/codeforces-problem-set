@@ -4,6 +4,7 @@
 
 using namespace std;
 
+// Dynamic Programming Unbounded Knapsack problem
 int bottomUp(long long amount){
 
     vector<int> bills = {1 , 5, 10, 20, 100};
