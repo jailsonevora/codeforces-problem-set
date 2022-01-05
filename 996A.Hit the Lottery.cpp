@@ -4,12 +4,13 @@
 
 using namespace std;
 
-int bottomUp(int amount){
+int bottomUp(long long amount){
 
     vector<int> bills = {1 , 5, 10, 20, 100};
-    int n = bills.size();
+    long long n = bills.size();
+    //amount %=10;
 
-    int dp[n+1][amount+1];
+    long long dp[n+1][amount+1];
 
     for(int row = 0; row <= n; ++row)
         dp[row][0] = 0;
@@ -33,7 +34,7 @@ int main(){
     cin.tie(0);
     cout.tie(0);
  
-    int n; 
+    long long n; 
     cin>> n;
 
     cout << bottomUp(n);
