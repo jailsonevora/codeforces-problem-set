@@ -51,7 +51,7 @@ int main(){
         for(auto it: favoriteSequence(sequence))
             cout<<it<<" ";
         cout << endl;
-        std::cin.ignore();
+        std::cin.clear();
     }
     return 0;
 }
