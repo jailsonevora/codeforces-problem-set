@@ -31,23 +31,27 @@ int main(){
     cout.tie(0);
 
     int t;
-    while(cin>>t){
+    cin>>t;
+    for(int i=1; i <= t; ++i){
+        
         int n;
         cin>>n;
+        std::cin.ignore();
 
         int temp;
         string line;
-        vector<int> sequence(n);
+        vector<int> sequence;
 
         getline(std::cin, line);
         istringstream ss(line);
 
         while (ss >> temp)
             sequence.push_back(temp);
-            
+
         for(auto it: favoriteSequence(sequence))
-            cout<<it<<" "<<
-        endl;      
+            cout<<it<<" ";
+        cout << endl;
+        std::cin.ignore();
     }
     return 0;
 }
