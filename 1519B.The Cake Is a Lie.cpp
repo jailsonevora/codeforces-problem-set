@@ -1,4 +1,4 @@
-// Dynamic Programming 0/1 Knapsack problem Subset sum
+// Dynamic Programming 0/1 Knapsack 
 #include<iostream>
 #include<algorithm>
 #include<vector>
