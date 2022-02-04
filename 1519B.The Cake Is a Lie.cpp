@@ -1,4 +1,4 @@
-// Dynamic Programming 0/1 Knapsack 
+// Dynamic Programming DP on grid problem
 #include<iostream>
 #include<algorithm>
 #include<vector>
