@@ -7,15 +7,21 @@
 
 using namespace std;
 // m*n to 1,1
-bool bottomUp(int m, int n, int k){
+void bottomUp(int m, int n, int k){
 
     int dp[m][n];
 
-    for (int row = 1; i < count; i++)
-    {
-        /* code */
-    }
-    
+    for (int row = 0; row < m; row++)
+        dp[row][0] = 1;
+
+    for (int col = 1; col < n; col++)
+        dp[0][col] = 1;
+
+    for (int row = 1; row < m; row++)
+        for (int col = 1; col < n; col++)
+            dp[row][col] = dp[row][col-1] + dp[row-1][col];
+        
+    (dp[m-1][n-1] == k) ? cout << "Yes" : cout << "No";    
 }
 
 int main(){
