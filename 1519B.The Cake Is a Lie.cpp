@@ -6,6 +6,11 @@
 #include<numeric>
 
 using namespace std;
+// m*n to 1,1
+bool bottomUp(int m, int n, int k){
+
+    int dp[m][n];
+}
 
 int main(){
 
