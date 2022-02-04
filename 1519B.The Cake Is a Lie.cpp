@@ -10,6 +10,12 @@ using namespace std;
 bool bottomUp(int m, int n, int k){
 
     int dp[m][n];
+
+    for (int row = 1; i < count; i++)
+    {
+        /* code */
+    }
+    
 }
 
 int main(){
@@ -21,10 +27,6 @@ int main(){
     int t;
     cin>>t;
     for(int i=1; i <= t; ++i){
-        
-        int n;
-        cin>>n;
-        std::cin.ignore();
 
         int temp;
         string line;
@@ -35,10 +37,8 @@ int main(){
 
         while (ss >> temp)
             items.push_back(temp);
-
-        int w = 0;
-        w = std::accumulate(items.begin(), items.end(), w);
-        //cout << (bottomUp(items,n, w/2) == 1 ? "YES" : "NO") << endl;
+        
+        bottomUp(items[0],items[1],items[2]);
         std::cin.clear();
     }
     return 0;
