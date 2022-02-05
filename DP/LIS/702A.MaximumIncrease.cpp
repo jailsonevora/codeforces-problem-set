@@ -9,7 +9,7 @@ using namespace std;
 
 int greedy(vector<int> items){
 
-    if(items.size()-1 == 0)
+    if(items.size() == 1)
         return 1;
 
     int max = 0;
@@ -19,9 +19,6 @@ int greedy(vector<int> items){
             max++;
         else
             max = 0;
-
-        // if(items[i] >= items[i-1] && i == items.size()-1)
-        //     max++;
     }
     return max;
 }
