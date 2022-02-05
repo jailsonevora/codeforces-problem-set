@@ -9,16 +9,19 @@ using namespace std;
 
 int greedy(vector<int> items){
 
+    if(items.size()-1 == 0)
+        return 1;
+
     int max = 0;
     for (int i = 1; i < items.size(); i++)
     {
-        if(items[i]>items[i-1])
+        if(items[i] > items[i-1])
             max++;
         else
             max = 0;
 
-        if(items[i]>items[i-1] && i == items.size()-1)
-            max++;
+        // if(items[i] >= items[i-1] && i == items.size()-1)
+        //     max++;
     }
     return max;
 }
