@@ -7,21 +7,24 @@
 
 using namespace std;
 // m*n to 1,1
-void bottomUp(int m, int n, int k){
+void bottomUp(int n, int m, int k){
 
-    int dp[m][n];
+    int dp[n][m];
+    std::fill(dp[0],dp[n],0);
 
-    for (int row = 0; row < m; row++)
-        dp[row][0] = 1;
-
-    for (int col = 1; col < n; col++)
-        dp[0][col] = 1;
-
-    for (int row = 1; row < m; row++)
-        for (int col = 1; col < n; col++)
-            dp[row][col] = dp[row][col-1] + dp[row-1][col];
+    for (int row = 0; row < n; row++)
+        for (int col = 0; col < m; col++){
+            if(row==0 && col==0) 
+                continue;
+            if(row == 0)
+                dp[row][col] = dp[row][col-1] + 1;
+            else if(col == 0)
+                dp[row][col] = dp[row-1][col] + 1;
+            else
+                dp[row][col] = dp[row-1][col] + (col+1);
+        }
         
-    (dp[m-1][n-1]-1 == k) ? cout << "Yes" : cout << "No";    
+    (dp[n-1][m-1] == k) ? cout << "Yes" : cout << "No";    
 }
 
 int main(){
