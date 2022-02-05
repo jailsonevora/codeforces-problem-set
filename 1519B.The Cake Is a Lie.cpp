@@ -21,7 +21,7 @@ void bottomUp(int m, int n, int k){
         for (int col = 1; col < n; col++)
             dp[row][col] = dp[row][col-1] + dp[row-1][col];
         
-    (dp[m-1][n-1] == k) ? cout << "Yes" : cout << "No";    
+    (dp[m-1][n-1]-1 == k) ? cout << "Yes" : cout << "No";    
 }
 
 int main(){
@@ -34,6 +34,7 @@ int main(){
     cin>>t;
     for(int i=1; i <= t; ++i){
 
+        std::cin.ignore();
         int temp;
         string line;
         vector<int> items;
