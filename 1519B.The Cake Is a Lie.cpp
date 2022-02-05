@@ -6,7 +6,7 @@
 #include<numeric>
 
 using namespace std;
-// m*n to 1,1
+// DP tabulation
 void bottomUp(int n, int m, int k){
 
     int dp[n][m];
