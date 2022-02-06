@@ -7,13 +7,20 @@
 
 using namespace std;
 
-int graph(int n, int v, vector<int> a){
+bool dfs(int u, int v, vector<int> graph[], vector<int>& visited){
 
-    vector<int> graph[n+1];
+    if()
+
+}
+
+void graph(int n, int v, vector<int> a){
+
+    vector<int> graph[n];
 
     for(int edge = 0, u = 1; edge < a.size(); edge++, u++)
         graph[u].push_back(a[edge]);
 
+    dfs(1,v,graph, visited) ? cout<<"Yes":cout<<"No";
 }
 
 
@@ -38,4 +45,5 @@ int main(){
     while (ss >> temp)
         a.push_back(temp);
 
+    graph(n,v,a);
 }
