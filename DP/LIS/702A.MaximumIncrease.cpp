@@ -13,9 +13,9 @@ int greedy(vector<int> items){
         return 1;
 
     int max = 0;
-    for (int i = 1; i < items.size(); i++)
+    for (int i = 0; i < items.size(); i++)
     {
-        if(items[i] > items[i-1])
+        if(items[i] < items[i+1])
             max++;
         else
             max = 1;
