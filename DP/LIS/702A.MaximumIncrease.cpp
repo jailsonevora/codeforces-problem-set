@@ -18,7 +18,7 @@ int greedy(vector<int> items){
         if(items[i] > items[i-1])
             max++;
         else
-            max = 0;
+            max = 1;
     }
     return max;
 }
