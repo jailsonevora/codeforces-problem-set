@@ -12,15 +12,16 @@ int greedy(vector<int> items){
     if(items.size() == 1)
         return 1;
 
-    int max = 0;
-    for (int i = 0; i < items.size(); i++)
+    int m = 1, ans = 0;
+    for (int i = 1; i < items.size(); i++)
     {
-        if(items[i] < items[i+1])
-            max++;
+        if(items[i] > items[i-1])
+            m++;
         else
-            max = 1;
+            ans = max(m,ans),
+                m = 1;
     }
-    return max;
+    return ans = max(m,ans);
 }
 
 int main(){
