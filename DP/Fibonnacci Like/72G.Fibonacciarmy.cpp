@@ -9,12 +9,12 @@ using namespace std;
 
 int fibonacciArmy(int n){
 
-    int dp[] = {0,1,1};
+    int dp[] = {1,1};
 
-    for (int i = 3; i < n; i++)
-        dp[i%3] = dp[0] + dp[1];
+    for (int i = 2; i <= n; i++)
+        dp[i%2] = dp[0] + dp[1];
 
-    return dp[n%3];
+    return dp[n%2];
 }
 
 
