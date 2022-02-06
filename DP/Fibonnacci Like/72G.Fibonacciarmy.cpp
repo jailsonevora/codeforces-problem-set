@@ -17,7 +17,6 @@ int fibonacciArmy(int n){
     return dp[n%2];
 }
 
-
 int main(){
 
     ios_base::sync_with_stdio(0);
@@ -27,6 +26,5 @@ int main(){
     int n;
     cin>>n;
 
-    cout << fibonacciArmy(n) << endl;
-    return 0;
+    return fibonacciArmy(n);
 }
