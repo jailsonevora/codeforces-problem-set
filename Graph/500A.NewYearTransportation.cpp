@@ -9,6 +9,11 @@ using namespace std;
 
 int graph(int n, int v, vector<int> a){
 
+    vector<int> graph[n+1];
+
+    for(int edge = 0, u = 1; edge < a.size(); edge++, u++)
+        graph[u].push_back(a[edge]);
+
 }
 
 
