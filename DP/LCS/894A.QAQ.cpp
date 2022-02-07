@@ -1,4 +1,4 @@
-// DP Longest Common Subsequence Problem Pattern Matching
+// DP Longest Common Subsequence Problem
 #include<iostream>
 #include<algorithm>
 #include<vector>
@@ -11,22 +11,22 @@ int lcs(string s, string p){
 
     int sz = s.size(), pz = p.size();
 
-    int dp[sz+1][pz+1];
+    string dp[sz+1][pz+1];
     int qaq = 0;
 
     for (int row = 0; row <= sz; row++)
-        dp[row][0] = 0;
+        dp[row][0] = "";
     for (int col = 1; col <= pz; col++)
-        dp[0][col] = 0;
+        dp[0][col] = "";
 
     for (int row = 1; row <= sz; row++)
         for (int col = 1; col <= pz; col++){
             if(s[row-1] == p[col-1])
-                dp[row][col] = dp[row-1][col-1] + 1;
+                dp[row][col] = dp[row-1][col-1] + s[row-1];
             else
-                dp[row][col] = max(dp[row-1][col],dp[row][col-1]);
+                dp[row][col] = dp[row][col-1].size() > dp[row-1][col].size() ? dp[row][col-1] : dp[row-1][col];
 
-            if(dp[row][col] == pz)
+            if(dp[row][col] == "QAQ")
                 qaq++;
         }
     return qaq/pz;
