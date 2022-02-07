@@ -7,10 +7,17 @@
 
 using namespace std;
 
-bool dfs(int u, int v, vector<int> graph[], vector<int>& visited){
-
-    if()
-
+bool dfs(int u, int dest, vector<int> graph[], vector<int>& visited){
+    
+    if(u == dest)
+        return true;
+    
+    visited[u] = 1;
+    for(int v: graph[u])
+        if(!visited[v])
+            if(dfs(v,dest,graph,visited))
+                return true;
+    return false;
 }
 
 void graph(int n, int v, vector<int> a){
@@ -18,12 +25,11 @@ void graph(int n, int v, vector<int> a){
     vector<int> graph[n];
 
     for(int edge = 0, u = 1; edge < a.size(); edge++, u++)
-        graph[u].push_back(a[edge]);
-
-    dfs(1,v,graph, visited) ? cout<<"Yes":cout<<"No";
+        graph[u].push_back(u+a[edge]);
+    
+    vector<int> visited(n,0);
+    dfs(1,v,graph,visited) ? cout<<"Yes":cout<<"No";
 }
-
-
 
 int main(){
 
