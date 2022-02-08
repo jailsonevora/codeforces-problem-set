@@ -22,12 +22,12 @@ bool dfs(int u, int dest, vector<int> graph[], vector<int>& visited){
 
 void graph(int n, int v, vector<int> a){
 
-    vector<int> graph[n];
+    vector<int> graph[n+1]; 
 
     for(int edge = 0, u = 1; edge < a.size(); edge++, u++)
         graph[u].push_back(u+a[edge]);
     
-    vector<int> visited(n,0);
+    vector<int> visited(n+1,0);
     dfs(1,v,graph,visited) ? cout<<"Yes":cout<<"No";
 }
 
