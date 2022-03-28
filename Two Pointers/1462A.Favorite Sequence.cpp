@@ -6,7 +6,7 @@
 using namespace std;
 
 vector<int> favoriteSequence(vector<int> sequence){
-
+    
     vector<int> ans;
     int pointer1 = 0, pointer2 = sequence.size()-1;
     
