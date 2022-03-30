@@ -24,7 +24,8 @@ class Graph {
         vector<int> shortest_reach(int start) {
             
             priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
-            vector<int> distance(graph.size()+1, INT_MAX);
+            vector<int> distance(graph.size(), INT_MAX);
+            
             pq.push({0,start});
             distance[start] = 0;
             
