@@ -49,9 +49,9 @@ class Graph {
                 } 
             }
             
-            for(int d: distance)
-                if(distance[d] >= INT_MAX)
-                    distance[d] = -1;
+            for(int& d: distance)
+                if(d >= INT_MAX)
+                    d = -1;
             return distance;
             
         }
