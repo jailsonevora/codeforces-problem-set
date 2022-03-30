@@ -41,7 +41,7 @@ class Graph {
                     int v = qV.first;
                     int distV = qV.second;
                     
-                    if(distance[v] < distance[u] + distV){
+                    if(distance[v] > distance[u] + distV){
                         distance[v] = distance[u] + distV;
                         pq.push({distance[v],v});
                     }
