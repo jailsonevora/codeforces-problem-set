@@ -13,7 +13,7 @@ class Graph {
         vector<vector<pair<int,int>>> graph;
         
         Graph(int n) {
-            graph.resize(n+1);
+            graph.resize(n);
         }
     
         void add_edge(int u, int v) {
