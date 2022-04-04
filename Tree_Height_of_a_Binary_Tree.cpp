@@ -71,7 +71,7 @@ class Node {
             int left = height(root->left);
         
         if(root->right)
-            int left = height(root->left)
+            int right = height(root->right);
     }
 
 }; //End of Solution
