@@ -37,6 +37,9 @@ class Node {
 
 void levelOrder(Node * root) {
 
+    queue<Node*> q;
+
+    q.push(root);
 
 }
 
