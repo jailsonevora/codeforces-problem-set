@@ -45,7 +45,11 @@ void levelOrder(Node * root) {
     {
         for (int size = q.size(); size > 0; size--)
         {
-            /* code */
+            auto tmp = q.front();
+            q.pop();
+
+            if(tmp->left)
+                q.push(tmp->left);
         }
         
     }
