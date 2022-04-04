@@ -67,6 +67,6 @@ int main() {
     for (int t = 1; t <= tc; t++) {
         // cout << "Case #" << t << ": ";
         Node * root = nullptr;
-        levelOrder(root)
+        levelOrder(root);
     }
 }
