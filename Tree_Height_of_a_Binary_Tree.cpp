@@ -68,10 +68,10 @@ class Node {
             return 0;
 
         if(root->left)
-            int left = height(root->left);
+            int left = height(root->left) + 1;
         
         if(root->right)
-            int right = height(root->right);
+            int right = height(root->right) + 1;
     }
 
 }; //End of Solution
