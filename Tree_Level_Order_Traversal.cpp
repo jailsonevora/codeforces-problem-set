@@ -41,6 +41,12 @@ void levelOrder(Node * root) {
 
     q.push(root);
 
+    while ()
+    {
+        /* code */
+    }
+    
+
 }
 
 int main() {
