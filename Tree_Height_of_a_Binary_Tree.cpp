@@ -1,0 +1,103 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+template<typename A, typename B> ostream& operator<<(ostream &os, const pair<A, B> &p) { return os << '(' << p.first << ", " << p.second << ')'; }
+template<typename T_container, typename T = typename enable_if<!is_same<T_container, string>::value, typename T_container::value_type>::type> ostream& operator<<(ostream &os, const T_container &v) { os << '{'; string sep; for (const T &x : v) os << sep << x, sep = ", "; return os << '}'; }
+void dbg_out() { cerr << endl; }
+template<typename Head, typename... Tail> void dbg_out(Head H, Tail... T) { cerr << ' ' << H; dbg_out(T...); }
+#ifdef LOCAL
+#define dbg(...) cerr << "(" << #__VA_ARGS__ << "):", dbg_out(__VA_ARGS__)
+#else
+#define dbg(...)
+#endif
+
+#define ar array
+#define ll long long
+#define ld long double
+#define sza(x) ((int)x.size())
+#define all(a) (a).begin(), (a).end()
+
+const int MAX_N = 1e5 + 5;
+const ll MOD = 1e9 + 7;
+const ll INF = 1e9;
+const ld EPS = 1e-9;
+
+class Node {
+    public:
+        int data;
+        Node *left;
+        Node *right;
+        Node(int d) {
+            data = d;
+            left = NULL;
+            right = NULL;
+        }
+};
+
+class Solution {
+    public:
+  		Node* insert(Node* root, int data) {
+            if(root == NULL) {
+                return new Node(data);
+            } else {
+                Node* cur;
+                if(data <= root->data) {
+                    cur = insert(root->left, data);
+                    root->left = cur;
+                } else {
+                    cur = insert(root->right, data);
+                    root->right = cur;
+               }
+
+               return root;
+           }
+        }
+/*The tree node has data, left child and right child 
+class Node {
+    int data;
+    Node* left;
+    Node* right;
+};
+
+*/
+    int height(Node* root) {
+        // Write your code here.
+
+        if(!root)
+            return 0;
+
+        if(root->left)
+            int left = height(root->left)
+        
+        if(root->ri)
+            int left = height(root->left)
+    }
+
+}; //End of Solution
+
+
+int main() {
+  
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+
+    Solution myTree;
+    Node* root = NULL;
+    
+    int t;
+    int data;
+
+    std::cin >> t;
+
+    while(t-- > 0) {
+        std::cin >> data;
+        root = myTree.insert(root, data);
+    }
+  
+    int height = myTree.height(root);
+    
+  	std::cout << height;
+
+    return 0;
+}
