@@ -67,11 +67,14 @@ class Node {
         if(!root)
             return 0;
 
-        if(root->left)
-            int left = height(root->left) + 1;
+        if(!root->left && !root->right)
+            return 0;
         
-        if(root->right)
-            int right = height(root->right) + 1;
+        int left = height(root->left) + 1;
+        
+        int right = height(root->right) + 1;
+
+        return std::max(left,right);
     }
 
 }; //End of Solution
