@@ -50,11 +50,13 @@ void levelOrder(Node * root) {
 
             if(tmp->left)
                 q.push(tmp->left);
-        }
-        
-    }
-    
 
+            if(tmp->right)
+                q.push(tmp->right);
+
+            cout << tmp->data << " ";
+        }        
+    }
 }
 
 int main() {
@@ -64,6 +66,7 @@ int main() {
     // cin >> tc;
     for (int t = 1; t <= tc; t++) {
         // cout << "Case #" << t << ": ";
-        solve();
+        Node * root = nullptr;
+        levelOrder(root)
     }
 }
