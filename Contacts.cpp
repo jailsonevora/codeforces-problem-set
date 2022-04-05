@@ -32,6 +32,24 @@ TrieNode *createNode(int index){
     return newNode;
 }
 
+void insert(string word) {
+        
+    TrieNode *curr = root;
+
+    int index;
+    for (int i = 0; word[i] != '\0'; i++)
+    {
+        index = word[i]-'a';
+        if(curr->children[index] == nullptr)
+            curr->children[index] = createNode(index);
+        curr->children[index]->count += 1;
+
+        // increment
+        curr = curr->children[index];
+    }
+    curr->endsWord += 1;
+}
+
 vector<int> contacts(vector<vector<string>> queries) {
 
 }
