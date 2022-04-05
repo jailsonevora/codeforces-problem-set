@@ -52,6 +52,23 @@ void insert(string word) {
     curr->endsWord += 1;
 }
 
+ bool startsWith(string prefix) {
+
+    TrieNode *curr = root;
+
+    int index;
+    for (int i = 0; prefix[i] != '\0'; i++)
+    {
+        index = prefix[i]-'a';
+        if(curr->children[index] == nullptr)
+            return false;
+        
+        // increment 
+        curr = curr->children[index];            
+    }
+    return curr->count > 0;        
+}
+
 vector<int> contacts(vector<vector<string>> queries) {
 
 }
