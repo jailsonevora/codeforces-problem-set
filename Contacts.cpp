@@ -21,6 +21,8 @@ struct TrieNode
     TrieNode* children[26];
 };
 
+TrieNode* root;
+
 TrieNode *createNode(int index){
         
     TrieNode* newNode = new TrieNode;
