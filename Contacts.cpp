@@ -21,6 +21,17 @@ struct TrieNode
     TrieNode* children[26];
 };
 
+TrieNode *createNode(int index){
+        
+    TrieNode* newNode = new TrieNode;
+    newNode->c = 'a'+index;
+    newNode->count = newNode->endsWord = 0;
+    
+    for(int i = 0; i < 26; ++i)
+        newNode->children[i] = nullptr;
+    return newNode;
+}
+
 vector<int> contacts(vector<vector<string>> queries) {
 
 }
