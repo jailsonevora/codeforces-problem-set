@@ -13,6 +13,14 @@ vector<string> split(const string &);
  * The function accepts 2D_STRING_ARRAY queries as parameter.
  */
 
+struct TrieNode
+{
+    char c;
+    int count;
+    int endsWord;
+    TrieNode* children[26];
+};
+
 vector<int> contacts(vector<vector<string>> queries) {
 
 }
