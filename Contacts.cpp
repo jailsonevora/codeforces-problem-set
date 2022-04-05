@@ -71,6 +71,8 @@ void insert(string word) {
 
 vector<int> contacts(vector<vector<string>> queries) {
 
+    for
+
 }
 
 int main()
