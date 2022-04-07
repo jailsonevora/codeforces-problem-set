@@ -17,7 +17,7 @@ struct TrieNode
 {
     int count;
     TrieNode* children[26];
-    
+
     TrieNode()
     {
         count = 0;
@@ -28,33 +28,19 @@ struct TrieNode
 
 TrieNode* root;
 
-TrieNode *createNode(int index){
-        
-    TrieNode* newNode = new TrieNode;
-    newNode->c = 'a'+index;
-    newNode->count = newNode->endsWord = 0;
-    
-    for(int i = 0; i < 26; ++i)
-        newNode->children[i] = nullptr;
-    return newNode;
-}
-
 void insert(string word) {
         
     TrieNode *curr = root;
 
-    int index;
     for (int i = 0; word[i] != '\0'; i++)
     {
-        index = word[i]-'a';
-        if(curr->children[index] == nullptr)
-            curr->children[index] = createNode(index);
-        curr->children[index]->count += 1;
+        if(curr->children[word[i]-'a'] == nullptr)
+            curr->children[word[i]-'a'] = TrieNode();
+        curr->children[word[i]-'a']->count += 1;
 
         // increment
-        curr = curr->children[index];
+        curr = curr->children[word[i]-'a'];
     }
-    curr->endsWord += 1;
 }
 
  bool startsWith(string prefix) {
