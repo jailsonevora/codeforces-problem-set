@@ -17,8 +17,13 @@ struct TrieNode
 {
     char c;
     int count;
-    int endsWord;
     TrieNode* children[26];
+    Node()
+    {
+        count = 0;
+        for(int i = 0; i < 26; ++i)
+            children[i] = nullptr;
+    }
 };
 
 TrieNode* root;
@@ -74,7 +79,7 @@ vector<int> contacts(vector<vector<string>> queries) {
     for (int i = 0; i < queries.size(); i++)
         for (int j = 0; j < queries.size(); j++){
             if(queries[i][0] == "add")
-                
+
 
         }
     
