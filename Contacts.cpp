@@ -15,10 +15,10 @@ vector<string> split(const string &);
 
 struct TrieNode
 {
-    char c;
     int count;
     TrieNode* children[26];
-    Node()
+    
+    TrieNode()
     {
         count = 0;
         for(int i = 0; i < 26; ++i)
