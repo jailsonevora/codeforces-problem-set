@@ -67,8 +67,6 @@ vector<int> contacts(vector<vector<string>> queries) {
             else if (queries[i][0] == "find")
                 startsWith(queries[i][1]);
         }
-    
-
 }
 
 int main()
