@@ -43,7 +43,7 @@ void insert(string word) {
     }
 }
 
- bool startsWith(string prefix) {
+ int startsWith(string prefix) {
 
     TrieNode *curr = root;
 
@@ -55,7 +55,7 @@ void insert(string word) {
         // increment 
         curr = curr->children[prefix[i]-'a'];            
     }
-    return curr->count > 0;        
+    return curr->count;        
 }
 
 vector<int> contacts(vector<vector<string>> queries) {
