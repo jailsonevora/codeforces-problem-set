@@ -60,11 +60,11 @@ void insert(string word) {
 vector<int> contacts(vector<vector<string>> queries) {
 
     vector<int> ans;
-    for (int i = 0; i < queries.size(); i++){
-        if(queries[i][0] == "add")
-            insert(queries[i][1]);
-        else if (queries[i][0] == "find")
-            ans.push_back(startsWith(queries[i][1]));
+    for (int i = 1; i < queries.size(); i++){
+        //if(queries[i][1] == "add");
+            //insert(queries[i][1]);
+        //else if (queries[i][1] == "find")
+          //  ans.push_back(startsWith(queries[i][2]));
     }
     
     return ans;
