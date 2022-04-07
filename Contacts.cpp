@@ -64,8 +64,8 @@ vector<int> contacts(vector<vector<string>> queries) {
         for (int j = 0; j < queries.size(); j++){
             if(queries[i][0] == "add")
                 insert(queries[i][1]);
-            
-
+            else if (queries[i][0] == "find")
+                startsWith(queries[i][1]);
         }
     
 
