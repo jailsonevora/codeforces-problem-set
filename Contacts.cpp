@@ -63,7 +63,8 @@ vector<int> contacts(vector<vector<string>> queries) {
     for (int i = 0; i < queries.size(); i++)
         for (int j = 0; j < queries.size(); j++){
             if(queries[i][0] == "add")
-
+                insert(queries[i][1]);
+            
 
         }
     
