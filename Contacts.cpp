@@ -47,15 +47,13 @@ void insert(string word) {
 
     TrieNode *curr = root;
 
-    int index;
     for (int i = 0; prefix[i] != '\0'; i++)
     {
-        index = prefix[i]-'a';
-        if(curr->children[index] == nullptr)
+        if(curr->children[ prefix[i]-'a'] == nullptr)
             return false;
         
         // increment 
-        curr = curr->children[index];            
+        curr = curr->children[prefix[i]-'a'];            
     }
     return curr->count > 0;        
 }
