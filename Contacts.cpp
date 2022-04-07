@@ -49,8 +49,8 @@ void insert(string word) {
 
     for (int i = 0; prefix[i] != '\0'; i++)
     {
-        if(curr->children[ prefix[i]-'a'] == nullptr)
-            return false;        
+        if(!curr->children[ prefix[i]-'a'])
+            return 0;        
         // increment 
         curr = curr->children[prefix[i]-'a'];            
     }
