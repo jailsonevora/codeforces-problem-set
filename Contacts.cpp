@@ -13,22 +13,23 @@ vector<string> split(const string &);
  * The function accepts 2D_STRING_ARRAY queries as parameter.
  */
 
-
-struct TrieNode
-{
-    int count;
-    TrieNode* children[26];
-
-    TrieNode()
-    {
-        count = 0;
-        for(int i = 0; i < 26; ++i)
-            children[i] = nullptr;
-    }
-};
 class Solution{
 
+    struct TrieNode
+    {
+        int count;
+        TrieNode* children[26];
+
+        TrieNode()
+        {
+            count = 0;
+            for(int i = 0; i < 26; ++i)
+                children[i] = nullptr;
+        }
+    };
+
     TrieNode* root = nullptr;
+    
     public:
         void insert(string word) {
                 
@@ -70,8 +71,7 @@ vector<int> contacts(vector<vector<string>> queries) {
             sl.insert(queries[i][1]);
         else if (queries[i][0] == "find");
           ans.push_back(sl.startsWith(queries[i][1]));
-    }
-    
+    }    
     return ans;
 }
 
