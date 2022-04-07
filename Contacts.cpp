@@ -35,7 +35,7 @@ void insert(string word) {
     for (int i = 0; word[i] != '\0'; i++)
     {
         if(curr->children[word[i]-'a'] == nullptr)
-            curr->children[word[i]-'a'] = TrieNode();
+            curr->children[word[i]-'a'] = new TrieNode();
         curr->children[word[i]-'a']->count += 1;
 
         // increment
@@ -50,8 +50,7 @@ void insert(string word) {
     for (int i = 0; prefix[i] != '\0'; i++)
     {
         if(curr->children[ prefix[i]-'a'] == nullptr)
-            return false;
-        
+            return false;        
         // increment 
         curr = curr->children[prefix[i]-'a'];            
     }
