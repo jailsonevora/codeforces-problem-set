@@ -72,9 +72,11 @@ void insert(string word) {
 vector<int> contacts(vector<vector<string>> queries) {
 
     for (int i = 0; i < queries.size(); i++)
-    {
-        if(queries[i])
-    }
+        for (int j = 0; j < queries.size(); j++){
+            if(queries[i][0] == "add")
+                
+
+        }
     
 
 }
