@@ -13,6 +13,7 @@ vector<string> split(const string &);
  * The function accepts 2D_STRING_ARRAY queries as parameter.
  */
 
+
 struct TrieNode
 {
     int count;
@@ -32,14 +33,14 @@ void insert(string word) {
         
     TrieNode *curr = root;
 
-    for (int i = 0; word[i] != '\0'; i++)
+    for (char c: word)
     {
-        if(!curr->children[word[i]-'a'])
-            curr->children[word[i]-'a'] = new TrieNode();
-        curr->children[word[i]-'a']->count += 1;
+        if(!curr->children[c-'a'])
+            curr->children[c-'a'] = new TrieNode();
+        curr->children[c-'a']->count ++;
 
         // increment
-        curr = curr->children[word[i]-'a'];
+        curr = curr->children[c-'a'];
     }
 }
 
@@ -60,11 +61,12 @@ void insert(string word) {
 vector<int> contacts(vector<vector<string>> queries) {
 
     vector<int> ans;
-    for (int i = 1; i < queries.size(); i++){
-        //if(queries[i][1] == "add");
-            //insert(queries[i][1]);
-        //else if (queries[i][1] == "find")
-          //  ans.push_back(startsWith(queries[i][2]));
+    for (int i = 0; i < queries.size(); i++){
+        cout << queries[i][0];
+        if(queries[i][0] == "add")
+            insert(queries[i][1]);
+        else if (queries[i][0] == "find");
+          ans.push_back(startsWith(queries[i][1]));
     }
     
     return ans;
