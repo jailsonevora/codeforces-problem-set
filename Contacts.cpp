@@ -29,46 +29,47 @@ struct TrieNode
 class Solution{
 
     TrieNode* root = nullptr;
+    public:
+        void insert(string word) {
+                
+            TrieNode *curr = root;
 
-    void insert(string word) {
-            
-        TrieNode *curr = root;
+            for (char c: word)
+            {
+                if(!curr->children[c-'a'])
+                    curr->children[c-'a'] = new TrieNode();
+                curr->children[c-'a']->count ++;
 
-        for (char c: word)
-        {
-            if(!curr->children[c-'a'])
-                curr->children[c-'a'] = new TrieNode();
-            curr->children[c-'a']->count ++;
-
-            // increment
-            curr = curr->children[c-'a'];
+                // increment
+                curr = curr->children[c-'a'];
+            }
         }
-    }
 
-    int startsWith(string prefix) {
+        int startsWith(string prefix) {
 
-        TrieNode *curr = root;
+            TrieNode *curr = root;
 
-        for (int i = 0; prefix[i] != '\0'; i++)
-        {
-            if(!curr->children[ prefix[i]-'a'])
-                return 0;        
-            // increment 
-            curr = curr->children[prefix[i]-'a'];            
+            for (int i = 0; prefix[i] != '\0'; i++)
+            {
+                if(!curr->children[ prefix[i]-'a'])
+                    return 0;        
+                // increment 
+                curr = curr->children[prefix[i]-'a'];            
+            }
+            return curr->count;        
         }
-        return curr->count;        
-    }
 };
 
 vector<int> contacts(vector<vector<string>> queries) {
 
     vector<int> ans;
+    Solution sl;
     for (int i = 0; i < queries.size(); i++){
         cout << queries[i][0];
         if(queries[i][0] == "add")
-            insert(queries[i][1]);
+            sl.insert(queries[i][1]);
         else if (queries[i][0] == "find");
-          ans.push_back(startsWith(queries[i][1]));
+          ans.push_back(sl.startsWith(queries[i][1]));
     }
     
     return ans;
