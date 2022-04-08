@@ -28,21 +28,23 @@ class Solution{
         }
     };
 
-    TrieNode* root = nullptr;
-    
+    TrieNode* root;
+
     public:
         void insert(string word) {
                 
+           // TrieNode *curr = root;
             TrieNode *curr = root;
 
             for (char c: word)
             {
-                if(!curr->children[c-'a'])
-                    curr->children[c-'a'] = new TrieNode();
-                curr->children[c-'a']->count ++;
+                int index = c-'a';
+                if(!curr->children[index])
+                    curr->children[index] = new TrieNode();
 
                 // increment
-                curr = curr->children[c-'a'];
+                curr = curr->children[index];
+                curr->children[index]->count ++;
             }
         }
 
