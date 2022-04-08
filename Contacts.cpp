@@ -26,30 +26,33 @@ struct TrieNode
     }
 };
 
-void insert(string word, TrieNode* root) {
+void insert(string& word, TrieNode* root) {
         
     TrieNode *curr = root;
-
+    
+    int index;
     for (char c: word)
     {
-        int index = c-'a';
+        index = c-'a';
         if(!curr->children[index])
             curr->children[index] = new TrieNode();
-        curr->count++;
-        
         curr = curr->children[index];
+        
+        curr->count++;        
     }
 }
 
-int startsWith(string prefix, TrieNode* root) {
+int startsWith(string& prefix, TrieNode* root) {
 
     TrieNode *curr = root;
-
-    for (int i = 0; prefix[i] != '\0'; i++)
+    
+    int index;
+    for (char c: prefix)
     {
-        if(!curr->children[ prefix[i]-'a'])
+        index = c-'a';        
+        if(!curr->children[index])
             return 0;
-        curr = curr->children[prefix[i]-'a'];            
+        curr = curr->children[index];            
     }
     return curr->count;        
 }
