@@ -40,9 +40,10 @@ class Solution{
                 int index = c-'a';
                 if(!curr->children[index])
                     curr->children[index] = new TrieNode();
+                curr->count++;
+                
                 curr = curr->children[index];
 
-                curr->count++;
             }
         }
 
