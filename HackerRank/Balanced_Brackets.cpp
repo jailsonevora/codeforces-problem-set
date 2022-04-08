@@ -27,7 +27,6 @@ string isBalanced(string s) {
         }
     }
     return "YES";
-
 }
 
 int main()
