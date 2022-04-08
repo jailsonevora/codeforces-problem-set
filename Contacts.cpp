@@ -59,7 +59,6 @@ vector<int> contacts(vector<vector<string>> queries) {
     vector<int> ans;
     TrieNode* root = new TrieNode;
     for (int i = 0; i < queries.size(); i++){
-        cout << queries[i][0];
         if(queries[i][0] == "add")
             insert(queries[i][1], root);
         else if (queries[i][0] == "find");
