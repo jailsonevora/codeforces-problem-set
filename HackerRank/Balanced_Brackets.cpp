@@ -13,12 +13,20 @@ string rtrim(const string &);
  */
 
 string isBalanced(string s) {
-    
-    for(char c: s){
-        if(c == '{' || c == '(' || c == '['){
 
+    stack<char> stack;
+    for(char c: s){
+        if(c == '{' || c == '(' || c == '[')
+            stack.push(c);
+        else{
+            char pop = stack.top(); stack.pop();
+            if( (pop != ')' && c == '(') || 
+                (pop != '}' && c == '{') || 
+                (pop != ']' && c == '[') )
+                return "NO";
         }
     }
+    return "YES";
 
 }
 
