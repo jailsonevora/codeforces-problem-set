@@ -33,7 +33,6 @@ class Solution{
     public:
         void insert(string word) {
                 
-           // TrieNode *curr = root;
             TrieNode *curr = root;
 
             for (char c: word)
@@ -41,10 +40,9 @@ class Solution{
                 int index = c-'a';
                 if(!curr->children[index])
                     curr->children[index] = new TrieNode();
-
-                // increment
                 curr = curr->children[index];
-                curr->children[index]->count ++;
+
+                curr->count++;
             }
         }
 
@@ -55,8 +53,7 @@ class Solution{
             for (int i = 0; prefix[i] != '\0'; i++)
             {
                 if(!curr->children[ prefix[i]-'a'])
-                    return 0;        
-                // increment 
+                    return 0;
                 curr = curr->children[prefix[i]-'a'];            
             }
             return curr->count;        
