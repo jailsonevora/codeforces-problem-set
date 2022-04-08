@@ -14,59 +14,50 @@ vector<string> split(const string &);
  */
 
 struct TrieNode
+{
+    int count;
+    TrieNode* children[26];
+
+    TrieNode()
     {
-        int count;
-        TrieNode* children[26];
-
-        TrieNode()
-        {
-            count = 0;
-            for(int i = 0; i < 26; ++i)
-                children[i] = nullptr;
-        }
-    };
-
-class Solution{
-    
-    public:
-
-    TrieNode* root;
-
-    void insert(string word, TrieNode* root) {
-            
-        TrieNode *curr = root;
-
-        for (char c: word)
-        {
-            int index = c-'a';
-            if(!curr->children[index])
-                curr->children[index] = new TrieNode();
-            curr->count++;
-            
-            curr = curr->children[index];
-
-        }
-    }
-
-    int startsWith(string prefix, TrieNode* root) {
-
-        TrieNode *curr = root;
-
-        for (int i = 0; prefix[i] != '\0'; i++)
-        {
-            if(!curr->children[ prefix[i]-'a'])
-                return 0;
-            curr = curr->children[prefix[i]-'a'];            
-        }
-        return curr->count;        
+        count = 0;
+        for(int i = 0; i < 26; ++i)
+            children[i] = nullptr;
     }
 };
+
+void insert(string word, TrieNode* root) {
+        
+    TrieNode *curr = root;
+
+    for (char c: word)
+    {
+        int index = c-'a';
+        if(!curr->children[index])
+            curr->children[index] = new TrieNode();
+        curr->count++;
+        
+        curr = curr->children[index];
+    }
+}
+
+int startsWith(string prefix, TrieNode* root) {
+
+    TrieNode *curr = root;
+
+    for (int i = 0; prefix[i] != '\0'; i++)
+    {
+        if(!curr->children[ prefix[i]-'a'])
+            return 0;
+        curr = curr->children[prefix[i]-'a'];            
+    }
+    return curr->count;        
+}
 
 vector<int> contacts(vector<vector<string>> queries) {
 
     vector<int> ans;
-    Solution sl;
-    sl.root = new TrieNode;
+    TrieNode* root = new TrieNode;
     for (int i = 0; i < queries.size(); i++){
         cout << queries[i][0];
         if(queries[i][0] == "add")
