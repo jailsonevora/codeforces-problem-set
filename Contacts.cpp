@@ -13,64 +13,59 @@ vector<string> split(const string &);
  * The function accepts 2D_STRING_ARRAY queries as parameter.
  */
 
-class Solution{
+struct TrieNode
+{
+    int count;
+    TrieNode* children[26];
 
-    struct TrieNode
+    TrieNode()
     {
-        int count;
-        TrieNode* children[26];
-
-        TrieNode()
-        {
-            count = 0;
-            for(int i = 0; i < 26; ++i)
-                children[i] = nullptr;
-        }
-    };
-
-    TrieNode* root;
-
-    public:
-        void insert(string word) {
-                
-            TrieNode *curr = root;
-
-            for (char c: word)
-            {
-                int index = c-'a';
-                if(!curr->children[index])
-                    curr->children[index] = new TrieNode();
-                curr->count++;
-                
-                curr = curr->children[index];
-
-            }
-        }
-
-        int startsWith(string prefix) {
-
-            TrieNode *curr = root;
-
-            for (int i = 0; prefix[i] != '\0'; i++)
-            {
-                if(!curr->children[ prefix[i]-'a'])
-                    return 0;
-                curr = curr->children[prefix[i]-'a'];            
-            }
-            return curr->count;        
-        }
+        count = 0;
+        for(int i = 0; i < 26; ++i)
+            children[i] = nullptr;
+    }
 };
+
+TrieNode* root;
+
+void insert(string word) {
+        
+    TrieNode *curr = root;
+
+    for (char c: word)
+    {
+        int index = c-'a';
+        if(!curr->children[index])
+            curr->children[index] = new TrieNode();
+        curr->count++;
+        
+        curr = curr->children[index];
+
+    }
+}
+
+int startsWith(string prefix) {
+
+    TrieNode *curr = root;
+
+    for (int i = 0; prefix[i] != '\0'; i++)
+    {
+        if(!curr->children[ prefix[i]-'a'])
+            return 0;
+        curr = curr->children[prefix[i]-'a'];            
+    }
+    return curr->count;        
+}
 
 vector<int> contacts(vector<vector<string>> queries) {
 
     vector<int> ans;
-    Solution sl;
     for (int i = 0; i < queries.size(); i++){
         cout << queries[i][0];
         if(queries[i][0] == "add")
-            sl.insert(queries[i][1]);
+            insert(queries[i][1]);
         else if (queries[i][0] == "find");
-          ans.push_back(sl.startsWith(queries[i][1]));
+          ans.push_back(startsWith(queries[i][1]));
     }    
     return ans;
 }
