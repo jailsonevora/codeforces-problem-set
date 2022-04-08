@@ -13,6 +13,12 @@ string rtrim(const string &);
  */
 
 string isBalanced(string s) {
+    
+    for(char c: s){
+        if(c == '{' || c == '(' || c == '['){
+
+        }
+    }
 
 }
 
