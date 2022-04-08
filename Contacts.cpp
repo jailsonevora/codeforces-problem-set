@@ -26,9 +26,8 @@ struct TrieNode
     }
 };
 
-TrieNode* root;
 
-void insert(string word) {
+void insert(string word, TrieNode* root) {
         
     TrieNode *curr = root;
 
@@ -44,7 +43,7 @@ void insert(string word) {
     }
 }
 
-int startsWith(string prefix) {
+int startsWith(string prefix, TrieNode* root) {
 
     TrieNode *curr = root;
 
@@ -60,12 +59,13 @@ int startsWith(string prefix) {
 vector<int> contacts(vector<vector<string>> queries) {
 
     vector<int> ans;
+    TrieNode* root = new TrieNode;
     for (int i = 0; i < queries.size(); i++){
         cout << queries[i][0];
         if(queries[i][0] == "add")
-            insert(queries[i][1]);
+            insert(queries[i][1], root);
         else if (queries[i][0] == "find");
-          ans.push_back(startsWith(queries[i][1]));
+          ans.push_back(startsWith(queries[i][1], root));
     }    
     return ans;
 }
