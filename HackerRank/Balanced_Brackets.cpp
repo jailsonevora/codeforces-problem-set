@@ -19,10 +19,12 @@ string isBalanced(string s) {
         if(c == '{' || c == '(' || c == '[')
             stack.push(c);
         else{
-            char pop = stack.top(); stack.pop();
-            if( (pop != ')' && c == '(') || 
-                (pop != '}' && c == '{') || 
-                (pop != ']' && c == '[') )
+            char pop = stack.top();
+            if( (pop == '(' && c == ')') || 
+                (pop == '{' && c == '}') || 
+                (pop == '[' && c == ']') )
+                stack.pop();
+            else
                 return "NO";
         }
     }
